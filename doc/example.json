@@ -5,6 +5,18 @@
   },
   "metricName": "total_sales_by_region",
   "dimensions": ["region"],
+  "basicFilters": [
+      {
+        "field": "enterprise_id",
+        "operator": "=",
+        "value": "E12345"
+      },
+      {
+        "field": "date",
+        "operator": "BETWEEN",
+        "value": ["2023-01-01", "2023-12-31"]
+      }
+    ],
   "filters": [
     {
       "field": "order_status",

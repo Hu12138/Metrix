@@ -35,9 +35,19 @@ public class SQLGenerator {
             request.getDataSource().getTable());
         String where = buildWhereClause(request);
         String groupBy = buildGroupByClause(request);
+        String timeRange = buildTimeRangeClause(request);
 
-        return String.format("SELECT %s %s %s %s", 
-            select, from, where, groupBy).trim();
+        return String.format("SELECT %s %s %s %s %s", 
+            select, from, where, timeRange, groupBy).trim();
+    }
+
+    private static String buildTimeRangeClause(QueryRequest request) {
+        if (request.getTimeRange() == null) {
+            return "";
+        }
+        return String.format("AND date BETWEEN '%s' AND '%s'",
+            request.getTimeRange().getStartDate().toString(),
+            request.getTimeRange().getEndDate().toString());
     }
 
     private static String buildSelectClause(QueryRequest request) {

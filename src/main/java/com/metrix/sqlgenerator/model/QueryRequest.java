@@ -10,4 +10,5 @@ public class QueryRequest {
     private List<String> dimensions;
     private List<Filter> filters;
     private Metric metric;
+    private TimeRange timeRange;
 }
