@@ -1,0 +1,20 @@
+{
+  "dataSource": {
+    "database": "sales_db",
+    "table": "orders"
+  },
+  "metricName": "total_sales_by_region",
+  "dimensions": ["region"],
+  "filters": [
+    {
+      "field": "order_status",
+      "operator": "=",
+      "value": "completed"
+    }
+  ],
+  "metric": {
+    "type": "sum",
+    "field": "order_amount",
+    "alias": "total_sales"
+  }
+}
