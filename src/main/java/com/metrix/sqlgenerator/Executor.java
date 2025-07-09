@@ -1,5 +1,6 @@
 package com.metrix.sqlgenerator;
 
+import com.metrix.sqlgenerator.model.DataSource;
 import com.metrix.sqlgenerator.service.DataValidator;
 import com.metrix.sqlgenerator.util.JsonUtils;
 import java.util.Map;
@@ -14,34 +15,34 @@ public class Executor {
                     {
                       "id": 1,
                       "dataSource": {
-                        "database": "sales_db",
-                        "table": "orders"
+                        "database": "mock",
+                        "table": "tax_registration"
                       },
-                      "metricName": "total_sales_by_region",
-                      "dimensions": ["region"],
+                      "metricName": "total_nums_by_金融业",
+                      "dimensions": ["hy"],
                       "basicFilters": [
                           {
-                            "field": "enterprise_id",
+                            "field": "hy",
                             "operator": "=",
-                            "value": "E12345"
+                            "value": "金融业"
                           },
                           {
-                            "field": "date",
+                            "field": "djrq",
                             "operator": "BETWEEN",
                             "value": ["2023-01-01", "2023-12-31"]
                           }
                         ],
                       "filters": [
                         {
-                          "field": "order_status",
+                          "field": "djlx",
                           "operator": "=",
-                          "value": "completed"
+                          "value": 1
                         }
                       ],
                       "metric": {
-                        "type": "sum",
-                        "field": "order_amount",
-                        "alias": "total_sales"
+                        "type": "count",
+                        "field": "nsrmc",
+                        "alias": "total_nums"
                       }
                     },
                     {
@@ -84,8 +85,11 @@ public class Executor {
         var queryRequest = JsonUtils.parseQuery(jsonStr);
         // 验证数据集
         DataValidator dataValidator = new DataValidator();
-        var dataCheckResult = dataValidator.validateData(queryRequest);
-        log.info("data validation result: {}", dataCheckResult);
+        Map<DataSource, DataValidator.DataCheckResult>  dataCheckResult = dataValidator.validateData(queryRequest);
+//        log.info("data validation result: {}", dataCheckResult);
+        dataCheckResult.forEach((result, dataSource) -> {
+            log.info("Data validation result for {}: {}", dataSource, result);
+        });
         // 生成SQL
         Map<String, String> sqlMap = SQLGenerator.generateSQL(queryRequest);
         

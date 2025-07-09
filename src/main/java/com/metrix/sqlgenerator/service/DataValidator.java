@@ -17,12 +17,12 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class DataValidator {
-    private static final String JDBC_URL = "jdbc:mysql://192.168.8.203:3306/test_db";
-    private static final String USER = "test";
-    private static final String PASSWORD = "123456";
+    private static final String JDBC_URL = "jdbc:mysql://192.168.8.202:3306/mock";
+    private static final String USER = "dcm";
+    private static final String PASSWORD = "N8xvZ2Q4kP5mT7wL";
 
-    public DataCheckResult validateData(QueryRequest request) {
-        DataCheckResult result = new DataCheckResult();
+    public Map<DataSource, DataCheckResult> validateData(QueryRequest request) {
+        Map<DataSource, DataCheckResult> results = new HashMap<>();
         Set<DataSource> checkedDataSources = new HashSet<>();
         
         try (Connection conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD)) {
@@ -32,6 +32,9 @@ public class DataValidator {
                 String tableName = dataSource.getTable();
                 DatabaseMetaData meta = conn.getMetaData();
                 
+                // 为每个数据源创建结果对象
+                DataCheckResult result = results.computeIfAbsent(dataSource, ds -> new DataCheckResult());
+                
                 // 去重检查数据源
                 if (!checkedDataSources.contains(dataSource)) {
                     // 验证表是否存在
@@ -39,7 +42,7 @@ public class DataValidator {
                         result.setValidationCode(DataCheckResult.ValidationCode.TABLE_NOT_FOUND);
                         result.setValidationMessage("表 " + tableName + " 不存在");
                         result.setDataComplete(false);
-                        return result;
+                        continue;
                     }
                     checkedDataSources.add(dataSource);
                     
@@ -50,7 +53,6 @@ public class DataValidator {
                                 result.setValidationCode(DataCheckResult.ValidationCode.COLUMN_NOT_FOUND);
                                 result.setValidationMessage("字段 " + filter.getField() + " 不存在");
                                 result.setDataComplete(false);
-                                return result;
                             }
                         }
                     }
@@ -61,7 +63,6 @@ public class DataValidator {
                     result.setValidationCode(DataCheckResult.ValidationCode.COLUMN_NOT_FOUND);
                     result.setValidationMessage("指标字段 " + metricConfig.getMetric().getField() + " 不存在");
                     result.setDataComplete(false);
-                    return result;
                 }
 
                 // 验证维度字段
@@ -71,7 +72,6 @@ public class DataValidator {
                             result.setValidationCode(DataCheckResult.ValidationCode.COLUMN_NOT_FOUND);
                             result.setValidationMessage("维度字段 " + dim + " 不存在");
                             result.setDataComplete(false);
-                            return result;
                         }
                     }
                 }
@@ -83,7 +83,6 @@ public class DataValidator {
                             result.setValidationCode(DataCheckResult.ValidationCode.COLUMN_NOT_FOUND);
                             result.setValidationMessage("过滤条件字段 " + filter.getField() + " 不存在");
                             result.setDataComplete(false);
-                            return result;
                         }
                     }
                 }
@@ -91,29 +90,49 @@ public class DataValidator {
 
             // 检查时间范围内数据连续性
             if (request.getTimeRange() != null) {
-                List<TimeRange> missingRanges = new ArrayList<>();
                 for (DataSource dataSource : checkedDataSources) {
-                    missingRanges.addAll(checkDataContinuity(conn, dataSource, request.getTimeRange()));
-                }
-                if (!missingRanges.isEmpty()) {
-                    result.setValidationCode(DataCheckResult.ValidationCode.DATA_INCOMPLETE);
-                    result.setValidationMessage("数据不完整，存在缺失时间段");
-                    result.setDataComplete(false);
-                    result.setMissingRanges(missingRanges);
-                    return result;
+                    DataCheckResult result = results.get(dataSource);
+                    List<TimeRange> missingRanges = checkDataContinuity(conn, dataSource, request.getTimeRange());
+                    if (!missingRanges.isEmpty()) {
+                        result.setValidationCode(DataCheckResult.ValidationCode.DATA_INCOMPLETE);
+                        result.setValidationMessage("数据不完整，存在缺失时间段");
+                        result.setDataComplete(false);
+                        result.setMissingRanges(missingRanges);
+                    } else {
+                        result.setValidationCode(DataCheckResult.ValidationCode.SUCCESS);
+                        result.setValidationMessage("验证通过");
+                        result.setDataComplete(true);
+                    }
                 }
             }
 
-            result.setValidationCode(DataCheckResult.ValidationCode.SUCCESS);
-            result.setValidationMessage("验证通过");
-            result.setDataComplete(true);
+            // 设置未检查的数据源为成功状态
+            for (DataSource dataSource : request.getMetricList().stream()
+                    .map(QueryRequest.MetricConfig::getDataSource)
+                    .distinct()
+                    .filter(ds -> !results.containsKey(ds))
+                    .toList()) {
+                DataCheckResult result = new DataCheckResult();
+                result.setValidationCode(DataCheckResult.ValidationCode.SUCCESS);
+                result.setValidationMessage("验证通过");
+                result.setDataComplete(true);
+                results.put(dataSource, result);
+            }
         } catch (SQLException e) {
-            result.setValidationCode(DataCheckResult.ValidationCode.CONNECTION_FAILED);
-            result.setValidationMessage("数据库连接失败: " + e.getMessage());
-            result.setDataComplete(false);
+            // 设置所有数据源为连接失败状态
+            for (DataSource dataSource : request.getMetricList().stream()
+                    .map(QueryRequest.MetricConfig::getDataSource)
+                    .distinct()
+                    .toList()) {
+                DataCheckResult result = new DataCheckResult();
+                result.setValidationCode(DataCheckResult.ValidationCode.CONNECTION_FAILED);
+                result.setValidationMessage("数据库连接失败: " + e.getMessage());
+                result.setDataComplete(false);
+                results.put(dataSource, result);
+            }
         }
         
-        return result;
+        return results;
     }
 
     private boolean validateTableExists(Connection conn, String tableName) throws SQLException {
@@ -216,7 +235,8 @@ public class DataValidator {
             TABLE_NOT_FOUND(1001, "表不存在"),
             COLUMN_NOT_FOUND(1002, "字段不存在"), 
             DATA_INCOMPLETE(1003, "数据不完整"),
-            CONNECTION_FAILED(1004, "数据库连接失败");
+            CONNECTION_FAILED(1004, "数据库连接失败"),
+            UNKNOWN_ERROR(1005, "未知错误");
 
             private final int code;
             private final String message;
