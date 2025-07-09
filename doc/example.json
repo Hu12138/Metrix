@@ -1,32 +1,70 @@
 {
-  "dataSource": {
-    "database": "sales_db",
-    "table": "orders"
-  },
-  "metricName": "total_sales_by_region",
-  "dimensions": ["region"],
-  "basicFilters": [
-      {
-        "field": "enterprise_id",
-        "operator": "=",
-        "value": "E12345"
-      },
-      {
-        "field": "date",
-        "operator": "BETWEEN",
-        "value": ["2023-01-01", "2023-12-31"]
-      }
-    ],
-  "filters": [
+  "MetricList":[
     {
-      "field": "order_status",
-      "operator": "=",
-      "value": "completed"
+      "id": 1,
+      "dataSource": {
+        "database": "sales_db",
+        "table": "orders"
+      },
+      "metricName": "total_sales_by_region",
+      "dimensions": ["region"],
+      "basicFilters": [
+          {
+            "field": "enterprise_id",
+            "operator": "=",
+            "value": "E12345"
+          },
+          {
+            "field": "date",
+            "operator": "BETWEEN",
+            "value": ["2023-01-01", "2023-12-31"]
+          }
+        ],
+      "filters": [
+        {
+          "field": "order_status",
+          "operator": "=",
+          "value": "completed"
+        }
+      ],
+      "metric": {
+        "type": "sum",
+        "field": "order_amount",
+        "alias": "total_sales"
+      }
+    },
+    {
+      "id": 2,
+      "dataSource": {
+        "database": "sales_db",
+        "table": "orders2"
+      },
+      "metricName": "total_sales_by_region2",
+      "dimensions": ["region"],
+      "basicFilters": [
+          {
+            "field": "enterprise_id",
+            "operator": "=",
+            "value": "E12345"
+          },
+          {
+            "field": "date",
+            "operator": "BETWEEN",
+            "value": ["2023-01-01", "2023-12-31"]
+          }
+        ],
+      "filters": [
+        {
+          "field": "order_status",
+          "operator": "=",
+          "value": "completed"
+        }
+      ],
+      "metric": {
+        "type": "sum",
+        "field": "order_amount",
+        "alias": "total_sales"
+      }
     }
-  ],
-  "metric": {
-    "type": "sum",
-    "field": "order_amount",
-    "alias": "total_sales"
-  }
+  ]
 }

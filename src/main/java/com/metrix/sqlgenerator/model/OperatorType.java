@@ -1,12 +1,13 @@
 package com.metrix.sqlgenerator.model;
 
 public enum OperatorType {
-    EQ("="), 
-    NE("!="), 
-    GT(">"), 
-    LT("<"), 
-    GTE(">="), 
-    LTE("<=");
+    EQ("="),
+    NE("!="),
+    GT(">"),
+    LT("<"),
+    GTE(">="),
+    LTE("<="),
+    BETWEEN("BETWEEN");
 
     private final String symbol;
 

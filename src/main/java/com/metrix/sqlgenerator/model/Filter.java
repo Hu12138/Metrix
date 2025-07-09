@@ -6,5 +6,5 @@ import lombok.Data;
 public class Filter {
     private String field;
     private OperatorType operator;
-    private String value;
+    private Object value;  // 支持String或String数组
 }

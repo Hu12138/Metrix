@@ -10,13 +10,20 @@ public class OperatorTypeDeserializer extends JsonDeserializer<OperatorType> {
     @Override
     public OperatorType deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         String value = p.getText();
-        switch (value) {
-            case "=": return OperatorType.EQ;
-            case "!=": return OperatorType.NE;
-            case ">": return OperatorType.GT;
-            case "<": return OperatorType.LT;
-            case ">=": return OperatorType.GTE;
-            case "<=": return OperatorType.LTE;
+        switch (value.toUpperCase()) {
+            case "=":
+            case "EQ": return OperatorType.EQ;
+            case "!=":
+            case "NE": return OperatorType.NE;
+            case ">":
+            case "GT": return OperatorType.GT;
+            case "<":
+            case "LT": return OperatorType.LT;
+            case ">=":
+            case "GTE": return OperatorType.GTE;
+            case "<=":
+            case "LTE": return OperatorType.LTE;
+            case "BETWEEN": return OperatorType.BETWEEN;
             default: throw new IllegalArgumentException("Unknown operator: " + value);
         }
     }
