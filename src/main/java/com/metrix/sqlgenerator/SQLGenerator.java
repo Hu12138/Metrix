@@ -46,10 +46,8 @@ public class SQLGenerator {
                 metricConfig.getDataSource().getTable());
             String where = buildWhereClause(metricConfig);
             String groupBy = buildGroupByClause(metricConfig);
-            String timeRange = buildTimeRangeClause(request);
-
-            String sql = String.format("SELECT %s %s %s %s %s", 
-                select, from, where, timeRange, groupBy).trim();
+            String sql = String.format("SELECT %s %s %s %s", 
+                select, from, where, groupBy).trim();
             
             sqlMap.put(metricConfig.getMetricName(), sql);
         }
@@ -57,14 +55,7 @@ public class SQLGenerator {
         return sqlMap;
     }
 
-    private static String buildTimeRangeClause(QueryRequest request) {
-        if (request.getTimeRange() == null) {
-            return "";
-        }
-        return String.format("AND date BETWEEN '%s' AND '%s'",
-            request.getTimeRange().getStartDate().toString(),
-            request.getTimeRange().getEndDate().toString());
-    }
+
 
     private static String buildSelectClause(QueryRequest.MetricConfig metricConfig) {
         String dimensions = metricConfig.getDimensions() != null ? 

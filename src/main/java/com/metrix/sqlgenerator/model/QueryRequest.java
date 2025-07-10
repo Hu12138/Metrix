@@ -6,7 +6,6 @@ import java.util.List;
 @Data
 public class QueryRequest {
     private List<MetricConfig> metricList;
-    private TimeRange timeRange;
 
     @Data
     public static class MetricConfig {

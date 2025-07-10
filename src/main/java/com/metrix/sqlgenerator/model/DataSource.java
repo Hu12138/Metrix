@@ -6,4 +6,5 @@ import lombok.Data;
 public class DataSource {
     private String database;
     private String table;
+    private String dateField;
 }

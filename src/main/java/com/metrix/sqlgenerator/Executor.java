@@ -1,7 +1,5 @@
 package com.metrix.sqlgenerator;
 
-import com.metrix.sqlgenerator.model.DataSource;
-import com.metrix.sqlgenerator.service.DataValidator;
 import com.metrix.sqlgenerator.util.JsonUtils;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +27,7 @@ public class Executor {
                           {
                             "field": "djrq",
                             "operator": "BETWEEN",
-                            "value": ["2023-01-01", "2023-12-31"]
+                            "value": ["2003-01-01", "2023-12-31"]
                           }
                         ],
                       "filters": [
@@ -48,34 +46,29 @@ public class Executor {
                     {
                       "id": 2,
                       "dataSource": {
-                        "database": "sales_db",
-                        "table": "orders2"
+                        "database": "mock",
+                        "table": "small_business_profit"
                       },
-                      "metricName": "total_sales_by_region2",
-                      "dimensions": ["region"],
+                      "metricName": "max_yylr_by_nsrsbh",
+                      "dimensions": ["nsrsbh"],
                       "basicFilters": [
                           {
-                            "field": "enterprise_id",
+                            "field": "nsrsbh",
                             "operator": "=",
-                            "value": "E12345"
+                            "value": "91335378"
                           },
                           {
-                            "field": "date",
+                            "field": "bbq",
                             "operator": "BETWEEN",
-                            "value": ["2023-01-01", "2023-12-31"]
+                            "value": ["2017-02", "2023-12"]
                           }
                         ],
                       "filters": [
-                        {
-                          "field": "order_status",
-                          "operator": "=",
-                          "value": "completed"
-                        }
                       ],
                       "metric": {
-                        "type": "sum",
-                        "field": "order_amount",
-                        "alias": "total_sales"
+                        "type": "max",
+                        "field": "yylr",
+                        "alias": "max_yylr"
                       }
                     }
                   ]
@@ -83,13 +76,7 @@ public class Executor {
                 """;
         // 解析请求
         var queryRequest = JsonUtils.parseQuery(jsonStr);
-        // 验证数据集
-        DataValidator dataValidator = new DataValidator();
-        Map<DataSource, DataValidator.DataCheckResult>  dataCheckResult = dataValidator.validateData(queryRequest);
-//        log.info("data validation result: {}", dataCheckResult);
-        dataCheckResult.forEach((result, dataSource) -> {
-            log.info("Data validation result for {}: {}", dataSource, result);
-        });
+
         // 生成SQL
         Map<String, String> sqlMap = SQLGenerator.generateSQL(queryRequest);
         
