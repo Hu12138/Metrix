@@ -1,0 +1,11 @@
+spring:
+
+  datasource:
+    url: 192.168.8.202
+    port: 3306
+    username: dcm
+    password: N8xvZ2Q4kP5mT7wL
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 8090  # 将监听端口改为8090

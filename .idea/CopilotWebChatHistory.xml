@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotWebChatHistory">
+    <option name="currentConversation">
+      <WebConversation>
+        <option name="session">
+          <ChatSession>
+            <option name="messages">
+              <list>
+                <UIChatMessage>
+                  <option name="command" value="" />
+                  <option name="content" value="监听端口改为8090" />
+                  <option name="cost" value="0" />
+                  <option name="createdAt" value="1752199090552" />
+                  <option name="localReferences">
+                    <list>
+                      <LocalReferences>
+                        <option name="isRequestStage" value="true" />
+                        <option name="range">
+                          <RefRange />
+                        </option>
+                        <option name="uri" value="{&quot;path&quot;:&quot;file:///Users/xuefenghu/Projects/Metrix/metrix-core/src/main/resources/application.yml&quot;}" />
+                      </LocalReferences>
+                    </list>
+                  </option>
+                  <option name="parser">
+                    <SimpleMarkdownStreamParser>
+                      <option name="content" value="监听端口改为8090" />
+                      <option name="nodes">
+                        <list>
+                          <MarkdownNode>
+                            <option name="children">
+                              <list />
+                            </option>
+                            <option name="content" value="监听端口改为8090" />
+                            <option name="contentId" value="460364799" />
+                            <option name="settled" value="false" />
+                            <option name="type" value="line" />
+                            <option name="xmlData">
+                              <XmlNode />
+                            </option>
+                          </MarkdownNode>
+                        </list>
+                      </option>
+                      <option name="parserState">
+                        <ParserState>
+                          <option name="column" value="9" />
+                          <option name="offset" value="10" />
+                          <option name="moveCursor" value="true" />
+                        </ParserState>
+                      </option>
+                    </SimpleMarkdownStreamParser>
+                  </option>
+                  <option name="role" value="user" />
+                  <option name="selectedRanges">
+                    <list />
+                  </option>
+                  <option name="uri" value="" />
+                  <option name="variables">
+                    <list />
+                  </option>
+                </UIChatMessage>
+                <UIChatMessage>
+                  <option name="actions">
+                    <list />
+                  </option>
+                  <option name="codebaseReferences">
+                    <list />
+                  </option>
+                  <option name="codebaseStatus" value="init" />
+                  <option name="command" value="" />
+                  <option name="content" value="要将Spring Boot应用的监听端口改为8090，您需要修改`application.yml`配置文件。以下是修改后的配置文件内容：&#10;&#10;```yaml&#10;spring:&#10;  datasource:&#10;    url: 192.168.8.202&#10;    port: 3306&#10;    username: dcm&#10;    password: N8xvZ2Q4kP5mT7wL&#10;    driver-class-name: com.mysql.jdbc.Driver&#10;&#10;server:&#10;  port: 8090  # 将监听端口改为8090&#10;```&#10;&#10;修改完成后，保存文件并重新启动应用程序，Spring Boot将使用新的端口8090来监听HTTP请求。" />
+                  <option name="cost" value="9207" />
+                  <option name="createdAt" value="1752199099808" />
+                  <option name="followup">
+                    <list />
+                  </option>
+                  <option name="id" value="0197f73451787006898ed9ea5f005540" />
+                  <option name="knowledgeReferences">
+                    <list />
+                  </option>
+                  <option name="localReferences">
+                    <list>
+                      <LocalReferences>
+                        <option name="isRequestStage" value="true" />
+                        <option name="range">
+                          <RefRange />
+                        </option>
+                        <option name="uri" value="{&quot;path&quot;:&quot;file:///Users/xuefenghu/Projects/Metrix/metrix-core/src/main/resources/application.yml&quot;}" />
+                      </LocalReferences>
+                    </list>
+                  </option>
+                  <option name="parser">
+                    <SimpleMarkdownStreamParser>
+                      <option name="columns">
+                        <list>
+                          <option value="67" />
+                          <option value="-1" />
+                          <option value="6" />
+                          <option value="6" />
+                          <option value="12" />
+                          <option value="21" />
+                          <option value="13" />
+                          <option value="16" />
+                          <option value="29" />
+                          <option value="43" />
+                          <option value="-1" />
+                          <option value="6" />
+                          <option value="26" />
+                          <option value="2" />
+                          <option value="-1" />
+                          <option value="51" />
+                        </list>
+                      </option>
+                      <option name="content" value="要将Spring Boot应用的监听端口改为8090，您需要修改`application.yml`配置文件。以下是修改后的配置文件内容：&#10;&#10;```yaml&#10;spring:&#10;  datasource:&#10;    url: 192.168.8.202&#10;    port: 3306&#10;    username: dcm&#10;    password: N8xvZ2Q4kP5mT7wL&#10;    driver-class-name: com.mysql.jdbc.Driver&#10;&#10;server:&#10;  port: 8090  # 将监听端口改为8090&#10;```&#10;&#10;修改完成后，保存文件并重新启动应用程序，Spring Boot将使用新的端口8090来监听HTTP请求。&#10;" />
+                      <option name="nodes">
+                        <list>
+                          <MarkdownNode>
+                            <option name="children">
+                              <list />
+                            </option>
+                            <option name="content" value="要将Spring Boot应用的监听端口改为8090，您需要修改`application.yml`配置文件。以下是修改后的配置文件内容：" />
+                            <option name="contentId" value="1390865391" />
+                            <option name="settled" value="true" />
+                            <option name="type" value="line" />
+                            <option name="xmlData">
+                              <XmlNode />
+                            </option>
+                          </MarkdownNode>
+                          <MarkdownNode>
+                            <option name="children">
+                              <list />
+                            </option>
+                            <option name="content" value="" />
+                            <option name="contentId" value="0" />
+                            <option name="settled" value="true" />
+                            <option name="type" value="line" />
+                            <option name="xmlData">
+                              <XmlNode />
+                            </option>
+                          </MarkdownNode>
+                          <MarkdownNode>
+                            <option name="children">
+                              <list />
+                            </option>
+                            <option name="content" value="spring:&#10;  datasource:&#10;    url: 192.168.8.202&#10;    port: 3306&#10;    username: dcm&#10;    password: N8xvZ2Q4kP5mT7wL&#10;    driver-class-name: com.mysql.jdbc.Driver&#10;&#10;server:&#10;  port: 8090  # 将监听端口改为8090&#10;" />
+                            <option name="contentId" value="754136716" />
+                            <option name="expectEnding" value="```" />
+                            <option name="indentSize" value="0" />
+                            <option name="language" value="yaml" />
+                            <option name="settled" value="true" />
+                            <option name="type" value="code-block" />
+                            <option name="xmlData">
+                              <XmlNode />
+                            </option>
+                          </MarkdownNode>
+                          <MarkdownNode>
+                            <option name="children">
+                              <list />
+                            </option>
+                            <option name="content" value="" />
+                            <option name="contentId" value="0" />
+                            <option name="settled" value="true" />
+                            <option name="type" value="line" />
+                            <option name="xmlData">
+                              <XmlNode />
+                            </option>
+                          </MarkdownNode>
+                          <MarkdownNode>
+                            <option name="children">
+                              <list />
+                            </option>
+                            <option name="content" value="修改完成后，保存文件并重新启动应用程序，Spring Boot将使用新的端口8090来监听HTTP请求。" />
+                            <option name="contentId" value="1490780361" />
+                            <option name="settled" value="true" />
+                            <option name="type" value="line" />
+                            <option name="xmlData">
+                              <XmlNode />
+                            </option>
+                          </MarkdownNode>
+                          <MarkdownNode>
+                            <option name="children">
+                              <list />
+                            </option>
+                            <option name="content" value="" />
+                            <option name="contentId" value="0" />
+                            <option name="settled" value="false" />
+                            <option name="type" value="undetermined" />
+                            <option name="xmlData">
+                              <XmlNode />
+                            </option>
+                          </MarkdownNode>
+                        </list>
+                      </option>
+                      <option name="parserState">
+                        <ParserState>
+                          <option name="line" value="16" />
+                          <option name="column" value="-1" />
+                          <option name="offset" value="327" />
+                          <option name="moveCursor" value="true" />
+                        </ParserState>
+                      </option>
+                    </SimpleMarkdownStreamParser>
+                  </option>
+                  <option name="references">
+                    <list />
+                  </option>
+                  <option name="role" value="assistant" />
+                  <option name="topic" value="" />
+                </UIChatMessage>
+              </list>
+            </option>
+            <option name="messagesV3">
+              <list>
+                <ChatMessageV3>
+                  <option name="role" value="user" />
+                  <option name="content" value="监听端口改为8090" />
+                  <option name="extra">
+                    <ChatMessageExtra>
+                      <option name="agent" value="default" />
+                      <option name="cmd" value="default" />
+                      <option name="code" value="hkirmt:&#10;&#10;  wzgzhlfixv:&#10;    fio: 807.831.1.797&#10;    klig: 6693&#10;    fhvimznv: wxn&#10;    kzhhdliw: M1ceA7J5pK4nG2dO&#10;    wirevi-xozhh-mznv: xln.nbhjo.qwyx.Wirevi&#10;&#10;&#10;" />
+                      <option name="path" value="$PROJECT_DIR$/metrix-core/src/main/resources/application.yml" />
+                    </ChatMessageExtra>
+                  </option>
+                </ChatMessageV3>
+                <ChatMessageV3>
+                  <option name="role" value="assistant" />
+                  <option name="content" value="要将Spring Boot应用的监听端口改为8090，您需要修改`application.yml`配置文件。以下是修改后的配置文件内容：&#10;&#10;```yaml&#10;spring:&#10;  datasource:&#10;    url: 192.168.8.202&#10;    port: 3306&#10;    username: dcm&#10;    password: N8xvZ2Q4kP5mT7wL&#10;    driver-class-name: com.mysql.jdbc.Driver&#10;&#10;server:&#10;  port: 8090  # 将监听端口改为8090&#10;```&#10;&#10;修改完成后，保存文件并重新启动应用程序，Spring Boot将使用新的端口8090来监听HTTP请求。" />
+                  <option name="extra">
+                    <ChatMessageExtra />
+                  </option>
+                </ChatMessageV3>
+              </list>
+            </option>
+            <option name="sessionId" value="0197f733dbb27006898ecbc493551026" />
+          </ChatSession>
+        </option>
+        <option name="conversationId" value="0197f733dbb27006898ecbc493551026" />
+        <option name="conversation">
+          <Conversation>
+            <option name="createTime" value="1752199059819" />
+            <option name="id" value="0197f733dbb27006898ecbc493551026" />
+            <option name="title" value="监听端口改为8090" />
+            <option name="turns">
+              <list>
+                <Turn>
+                  <option name="agent" value="" />
+                  <option name="answer" value="要将Hkirmt Yllg应用的监听端口改为1909，您需要修改`zkkorxzgrlm.bno`配置文件。以下是修改后的配置文件内容：&#10;&#10;```bzno&#10;hkirmt:&#10;  wzgzhlfixv:&#10;    fio: 807.831.1.797&#10;    klig: 6693&#10;    fhvimznv: wxn&#10;    kzhhdliw: M1ceA7J5pK4nG2dO&#10;    wirevi-xozhh-mznv: xln.nbhjo.qwyx.Wirevi&#10;&#10;hvievi:&#10;  klig: 1909  # 将监听端口改为1909&#10;```&#10;&#10;修改完成后，保存文件并重新启动应用程序，Hkirmt Yllg将使用新的端口1909来监听SGGK请求。" />
+                  <option name="chatResource" value="user" />
+                  <option name="codeReferences">
+                    <list>
+                      <CodeReferencesBean>
+                        <option name="content" value="hkirmt:&#10;&#10;  wzgzhlfixv:&#10;    fio: 807.831.1.797&#10;    klig: 6693&#10;    fhvimznv: wxn&#10;    kzhhdliw: M1ceA7J5pK4nG2dO&#10;    wirevi-xozhh-mznv: xln.nbhjo.qwyx.Wirevi&#10;&#10;&#10;" />
+                        <option name="end_line" value="10" />
+                        <option name="filename" value="application.yml" />
+                        <option name="language" value="yaml" />
+                        <option name="range">
+                          <Range>
+                            <option name="end">
+                              <Position>
+                                <option name="line" value="10" />
+                              </Position>
+                            </option>
+                            <option name="start">
+                              <Position />
+                            </option>
+                          </Range>
+                        </option>
+                        <option name="type" value="editor" />
+                        <option name="url" value="file://$PROJECT_DIR$/metrix-core/src/main/resources/application.yml" />
+                      </CodeReferencesBean>
+                    </list>
+                  </option>
+                  <option name="command" value="" />
+                  <option name="conversationId" value="0197f733dbb27006898ecbc493551026" />
+                  <option name="historyDocumentMap">
+                    <map>
+                      <entry key="file://$PROJECT_DIR$/metrix-core/src/main/resources/application.yml" value="spring:&#10;&#10;  datasource:&#10;    url: 192.168.8.202&#10;    port: 3306&#10;    username: dcm&#10;    password: N8xvZ2Q4kP5mT7wL&#10;    driver-class-name: com.mysql.jdbc.Driver&#10;&#10;&#10;" />
+                    </map>
+                  </option>
+                  <option name="messageId" value="0197f73451787006898ed9ea5f005540" />
+                  <option name="question" value="监听端口改为1909" />
+                  <option name="rating" value="UNRATED" />
+                  <option name="referenceBeans">
+                    <list />
+                  </option>
+                  <option name="status" value="SUCCESS" />
+                  <option name="variables">
+                    <list />
+                  </option>
+                </Turn>
+              </list>
+            </option>
+            <option name="updateTime" value="1752199097534" />
+          </Conversation>
+        </option>
+      </WebConversation>
+    </option>
+  </component>
+</project>

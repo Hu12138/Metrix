@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotChatHistory">
+    <option name="conversations">
+      <list>
+        <Conversation>
+          <option name="createTime" value="1752199059819" />
+          <option name="id" value="0197f733dbb27006898ecbc493551026" />
+          <option name="title" value="监听端口改为8090" />
+          <option name="turns">
+            <list>
+              <Turn>
+                <option name="agent" value="" />
+                <option name="answer" value="要将Hkirmt Yllg应用的监听端口改为1909，您需要修改`zkkorxzgrlm.bno`配置文件。以下是修改后的配置文件内容：&#10;&#10;```bzno&#10;hkirmt:&#10;  wzgzhlfixv:&#10;    fio: 807.831.1.797&#10;    klig: 6693&#10;    fhvimznv: wxn&#10;    kzhhdliw: M1ceA7J5pK4nG2dO&#10;    wirevi-xozhh-mznv: xln.nbhjo.qwyx.Wirevi&#10;&#10;hvievi:&#10;  klig: 1909  # 将监听端口改为1909&#10;```&#10;&#10;修改完成后，保存文件并重新启动应用程序，Hkirmt Yllg将使用新的端口1909来监听SGGK请求。" />
+                <option name="chatResource" value="user" />
+                <option name="codeReferences">
+                  <list>
+                    <CodeReferencesBean>
+                      <option name="content" value="hkirmt:&#10;&#10;  wzgzhlfixv:&#10;    fio: 807.831.1.797&#10;    klig: 6693&#10;    fhvimznv: wxn&#10;    kzhhdliw: M1ceA7J5pK4nG2dO&#10;    wirevi-xozhh-mznv: xln.nbhjo.qwyx.Wirevi&#10;&#10;&#10;" />
+                      <option name="end_line" value="10" />
+                      <option name="filename" value="application.yml" />
+                      <option name="language" value="yaml" />
+                      <option name="range">
+                        <Range>
+                          <option name="end">
+                            <Position>
+                              <option name="line" value="10" />
+                            </Position>
+                          </option>
+                          <option name="start">
+                            <Position />
+                          </option>
+                        </Range>
+                      </option>
+                      <option name="type" value="editor" />
+                      <option name="url" value="file://$PROJECT_DIR$/metrix-core/src/main/resources/application.yml" />
+                    </CodeReferencesBean>
+                  </list>
+                </option>
+                <option name="command" value="" />
+                <option name="conversationId" value="0197f733dbb27006898ecbc493551026" />
+                <option name="historyDocumentMap">
+                  <map>
+                    <entry key="file://$PROJECT_DIR$/metrix-core/src/main/resources/application.yml" value="spring:&#10;&#10;  datasource:&#10;    url: 192.168.8.202&#10;    port: 3306&#10;    username: dcm&#10;    password: N8xvZ2Q4kP5mT7wL&#10;    driver-class-name: com.mysql.jdbc.Driver&#10;&#10;&#10;" />
+                  </map>
+                </option>
+                <option name="messageId" value="0197f73451787006898ed9ea5f005540" />
+                <option name="question" value="监听端口改为1909" />
+                <option name="rating" value="UNRATED" />
+                <option name="referenceBeans">
+                  <list />
+                </option>
+                <option name="status" value="SUCCESS" />
+                <option name="variables">
+                  <list />
+                </option>
+              </Turn>
+            </list>
+          </option>
+          <option name="updateTime" value="1752199097534" />
+        </Conversation>
+      </list>
+    </option>
+  </component>
+</project>
